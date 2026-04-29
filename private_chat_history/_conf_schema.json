@@ -1,0 +1,93 @@
+{
+  "auto_inject": {
+    "type": "bool",
+    "description": "自动注入私聊历史",
+    "hint": "开启后，每次 AI 请求时自动从缓存读取最近私聊消息注入到上下文中，AI 就能看到私聊内容",
+    "default": true,
+    "obvious_hint": true
+  },
+  "target_users": {
+    "type": "string",
+    "description": "目标用户 QQ 号",
+    "hint": "需要拉取私聊历史的 QQ 号，多个用逗号分隔。例如：123456789,987654321",
+    "default": ""
+  },
+  "fetch_count": {
+    "type": "int",
+    "description": "每次拉取消息数",
+    "hint": "每次从 NapCat 拉取的私聊消息条数（会过滤掉指令消息）。首次自动拉取时也用这个数量",
+    "default": 20
+  },
+  "max_cache_size": {
+    "type": "int",
+    "description": "最大缓存条数",
+    "hint": "本地缓存最多保留多少条消息，超过后删除最早的。建议设为拉取数的 2-3 倍",
+    "default": 60
+  },
+  "fetch_interval": {
+    "type": "int",
+    "description": "刷新间隔（秒）",
+    "hint": "两次刷新缓存之间最少间隔多少秒，防止频繁请求 NapCat",
+    "default": 300
+  },
+  "max_inject_messages": {
+    "type": "int",
+    "description": "最大注入消息数",
+    "hint": "注入到 AI 上下文的最多消息条数。如果缓存消息不够，会放宽过滤条件往前找",
+    "default": 15
+  },
+  "min_inject_messages": {
+    "type": "int",
+    "description": "最小注入消息数",
+    "hint": "注入消息的最低条数。如果过滤后不足此数，会自动放宽条件以保证有足够上下文",
+    "default": 5
+  },
+  "min_message_length": {
+    "type": "int",
+    "description": "过滤短消息（字符数）",
+    "hint": "少于此字数的消息不注入，避免无意义的短消息（如 '嗯' '哦'）占用上下文",
+    "default": 5
+  },
+  "summary_threshold_10_20": {
+    "type": "int",
+    "description": "10-20 条消息时摘要字数上限",
+    "hint": "当缓存 10-20 条消息并触发总结时，AI 生成的摘要不超过此字数。摘要会替换原始消息存入缓存，节省后续上下文 token",
+    "default": 400
+  },
+  "summary_threshold_20_30": {
+    "type": "int",
+    "description": "20-30 条消息时摘要字数上限",
+    "hint": "当缓存 20-30 条消息并触发总结时，AI 生成的摘要不超过此字数",
+    "default": 500
+  },
+  "summary_threshold_30_40": {
+    "type": "int",
+    "description": "30-40 条消息时摘要字数上限",
+    "hint": "当缓存 30-40 条消息并触发总结时，AI 生成的摘要不超过此字数",
+    "default": 600
+  },
+  "summary_threshold_40_50": {
+    "type": "int",
+    "description": "40-50 条消息时摘要字数上限",
+    "hint": "当缓存 40-50 条消息并触发总结时，AI 生成的摘要不超过此字数",
+    "default": 700
+  },
+  "summary_provider_id": {
+    "type": "string",
+    "description": "总结使用的模型",
+    "hint": "留空自动使用当前聊天模型。可填如 'openai', 'gemini' 等 provider ID",
+    "default": ""
+  },
+  "napcat_http": {
+    "type": "string",
+    "description": "NapCat HTTP 地址",
+    "hint": "NapCat 的 HTTP API 地址，通常是 http://127.0.0.1:3000",
+    "default": "http://127.0.0.1:3000"
+  },
+  "napcat_token": {
+    "type": "string",
+    "description": "NapCat API Token",
+    "hint": "NapCat API 的授权 Token，需要和 NapCat 配置里的一致",
+    "default": "1145141919810"
+  }
+}
