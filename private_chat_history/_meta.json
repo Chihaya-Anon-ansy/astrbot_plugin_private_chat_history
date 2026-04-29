@@ -1,6 +1,0 @@
-{
-    "name": "private_chat_history",
-    "version": "0.0.1",
-    "description": "查询私聊聊天记录插件（启动时自动缓存最近20条）",
-    "author": "Nagasaki soyo"
-}

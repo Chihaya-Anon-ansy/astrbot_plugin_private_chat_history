@@ -1,6 +1,0 @@
-plugin_type: star
-name: private_chat_history
-display_name: 私聊历史记录
-description: "启动时自动缓存QQ私聊记录，供AI参考对话上下文"
-author: Nagasaki Soyo
-version: 1.0.0
